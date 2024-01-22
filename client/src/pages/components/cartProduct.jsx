@@ -29,6 +29,11 @@ function Product(props) {
                         .map((_, i) =>
                             <p>*</p>)
                 }</span>
+                <div>
+                    <button className="px-2 bg-slate-200">-</button>
+                    <label className="px-4 bg-slate-100">0</label>
+                    <button className="px-2 bg-slate-200">+</button>
+                </div>
                 <button onClick={removeFromBasket} className="border-2 rounded-md border-amber-500 p-1 mt-2 bg-amber-500">Remove from Cart</button>
             </div>
         </div>
