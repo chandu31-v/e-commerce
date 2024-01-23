@@ -15,6 +15,7 @@ function Product(props) {
                 price: props.price,
                 star: props.star,
                 image: props.image,
+                quantity:props.quantity
             }
         })
 

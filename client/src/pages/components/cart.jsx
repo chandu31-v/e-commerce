@@ -15,7 +15,7 @@ function Cart() {
             <div className="flex w-full pt-14" >
                 <div className="mr-4 w-full">
                     {basket.map((x) => {
-                        return <CartProduct id={x.id} title={x.title} price={x.price} star={x.star} image={x.image} />
+                        return <CartProduct key={x.id+x.title} id={x.id} title={x.title} price={x.price} star={x.star} image={x.image} quantity={x.quantity} />
                     })}
                 </div>
                 <div className="flex w-full justify-end">

@@ -19,13 +19,13 @@ function Home() {
 
                 {/**Product list */}
                 <div className="flex mx-2 flex-grow">
-                    <Product id={1} title="Mixer" price={10} star={3} image={product_img} />
-                    <Product id={2} title="Mixer" price={10} star={3} image={product_img} />
+                    <Product key={1} id={1} title="Mixer" price={10} star={3} image={product_img} quantity={1} />
+                    <Product key={2} id={2} title="Mixer" price={10} star={3} image={product_img} quantity={1} />
                 </div>
                 <div className="flex mx-2">
-                    <Product id={3} title="Mixer" price="10" star={3} image={product_img} />
-                    <Product id={4} title="Mixer" price="10" star={3} image={product_img} />
-                    <Product id={5} title="Mixer" price="10" star={3} image={product_img} />
+                    <Product key={3} id={3} title="Mixer" price="10" star={3} image={product_img} quantity={1}/>
+                    <Product key={4} id={4} title="Mixer" price="10" star={3} image={product_img} quantity={1}/>
+                    <Product key={5} id={5} title="Mixer" price="10" star={3} image={product_img} quantity={1}/>
                 </div>
             </div>
         </div>
