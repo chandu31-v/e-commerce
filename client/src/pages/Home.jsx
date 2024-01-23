@@ -7,6 +7,7 @@ import product_img from "../resources/product_img.jpg"
 
 function Home() {
 
+    //const value = require("../json/homePage.json")
 
     return <>
         <Header />

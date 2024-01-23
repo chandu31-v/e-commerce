@@ -36,7 +36,7 @@ function Header() {
             signOut(auth)
         }
         else {
-            navigate("/signin")
+            navigate("/login")
         }
     }
 
@@ -57,7 +57,7 @@ function Header() {
                     <div className="flex flex-col mr-[1vw]">
                         <span className="text-gray-400 text-xs py-0.5" onClick={() => navigate("/profile")}>Hello, {name}</span>
                         <span className="text-sm font-bold" onClick={SignInOut}>
-                            {user ? "Sign Out" : "Sign In"}
+                            {user ? "LogOut" : "LogIn"}
                         </span>
                     </div>
                     <div className="flex flex-col mr-[1vw]">

@@ -4,42 +4,51 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'fire
 import { auth } from "../../server/FireBase"
 import { useNavigate } from "react-router-dom";
 
-function SignIn() {
+function Signin() {
 
-    const [username, setuser] = useState("")
-    const [password, setpass] = useState("")
-
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone,setPhone] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const navigate = useNavigate()
 
-    const logIn = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, username, password)
-            .then((val) => {
-                navigate("/")
-            })
-    }
-
-    const singIn = (e) => {
-        //console.log(e)
-        e.preventDefault()
-        createUserWithEmailAndPassword(auth, username, password)
-            .then((val) => {
-                navigate("/")
-            })
-    }
+    const createAccount = () => { }
 
     return <>
         <div>
             <div className="flex w-full justify-center">  {/*Amazon logo */}
-                <img src={amazon_logo} alt="" className="w-28 h-26" onClick={()=>navigate("/")}/>
+                <img src={amazon_logo} alt="" className="w-28 h-26" onClick={() => navigate("/")} />
             </div>
-            <div className="flex flex-col items-center">  {/*Username password*/}
+            <div className="flex flex-col items-center">  {/*Email password name password*/}
                 <div className="border-2 rounded-md p-4 pt-1 w-96">
-                    <div className="w-96"><label className="flex justify-start items-start mx-4 my-1 text-3xl font-semibold mb-4">Sign in</label></div>
-                    <div className="w-96"><label className="mx-4 my-1 text-sm font-bold text-gray-800">Email or mobile phone number</label></div>
-                    <div className="w-96 mb-1"><input type="text" placeholder="  Username" onChange={e => setuser(e.target.value)} value={username} className="border-2 rounded-md mx-4 my-1 w-5/6 p-1" /></div>
-                    <div className="w-96 mb-1"><input type="password" placeholder="  Password" onChange={e => setpass(e.target.value)} value={password} className="border-2 rounded-md mx-4 my-1 w-5/6 p-1" /></div>
-                    <div className="w-96"><button className="border-2 rounded-md mx-4 my-1 w-5/6 text-sm bg-orange-400 border-orange-400 p-1" onClick={logIn}>LogIn</button></div>
+                    <div className="w-96"><label className="flex justify-start items-start mx-4 my-1 text-3xl font-semibold mb-4">Create Account</label></div>
+
+                    <div className="w-96"> {/**Name */}
+                        <label className="mx-4 my-1 text-sm font-bold text-gray-800">Name</label>
+                        <input placeholder=" Name" value={name} onChange={(e) => setName(e.target.value)} className="border-2 rounded-md mx-4 my-1 w-5/6 p-1" />
+                    </div>
+                    <div className="w-96"> {/**Email */}
+                        <label className="mx-4 my-1 text-sm font-bold text-gray-800">Email</label>
+                        <input placeholder=" Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border-2 rounded-md mx-4 my-1 w-5/6 p-1" />
+                    </div>
+                    <div className="w-96 mb-1"> {/**PhoneNUmber */}
+                        <label className="mx-4 my-1 text-sm font-bold text-gray-800">Phone Number</label>
+                        <input type="text" placeholder=" PhoneNumber" value={phone} onChange={e => setPhone(e.target.value)} className="border-2 rounded-md mx-4 my-1 w-5/6 p-1" />
+                    </div>
+                    <div className="w-96 mb-1"> {/**Password */}
+                        <label className="mx-4 my-1 text-sm font-bold text-gray-800">Password</label>
+                        <input type="password" placeholder="  Password" value={password} onChange={e => setPassword(e.target.value)} className="border-2 rounded-md mx-4 my-1 w-5/6 p-1" />
+                    </div>
+                    <div className="w-96 mb-1"> {/**Confirm password */}
+                        <label className="mx-4 my-1 text-sm font-bold text-gray-800">Confirm Password</label>
+                        <input type="password" placeholder=" Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} className="border-2 rounded-md mx-4 my-1 w-5/6 p-1" />
+                    </div>
+                    <div className="w-96"> {/**Create Account button */}
+                        <button className="border-2 rounded-md mx-4 my-1 w-5/6 text-sm bg-orange-400 border-orange-400 p-1" onClick={createAccount}>Create Account</button>
+                    </div>
+
+                    <div className="flex w-full justify-end mr-10"><button className="text-blue-500 text-xs" onClick={() => { navigate("/Login") }}>Have account?</button></div>
                     <div className="flex flex-col">  {/*Terms and condition policy */}
                         <p className="text-xs mt-6">By continuing, you agree to Amazon's {<button className="text-blue-500" onClick={null}>Conditions of Use</button>} and {<button className="text-blue-500" onClick={null}>Privacy Notice</button>}</p>
                     </div>
@@ -47,13 +56,11 @@ function SignIn() {
                         <a href="" className="text-blue-500 text-sm">Need Help</a>
                     </div>
                 </div>
-                <div className="w-96">
-                    <button onClick={singIn} className="w-full text-sm border-2 rounded-md p-1 mt-4 bg-gray-300">Create your Amazon account</button>
-                </div>
             </div>
 
         </div>
     </>
 }
 
-export default SignIn
+
+export default Signin
